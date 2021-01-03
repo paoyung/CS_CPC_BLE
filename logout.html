@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=0" />
+        <title>中油油價系統</title>
+        <style>
+            body {
+                background-color: white;
+                font-family: Arial, Helvetica, Sans-Serif;
+                color: black;
+            }
+            button {
+                background-color: #5c5c5c;
+                border: 0;
+                border: 1px solid rgb(150, 149, 172);
+                color: white;
+                padding: 8px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                border-radius: 4px;
+                font-size: 12pt;
+            }
+            button:hover {
+                outline: none !important;
+                border: 1px solid rgb(255, 62, 62);
+                box-shadow: 0 0 10px #719ece;
+            }
+            div {
+                display: table;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        </style>
+    </head>
+    <body style="text-align: center;">
+        <div style="padding: 12px 12px;">
+            <img
+                id="cpcLogo"
+                style="border: 0;"
+                alt="CPC_Mark"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAAwAgMAAABF8Y98AAAADFBMVEXsHBUhVZeSrMT4/Pr93m36AAAAB3RJTUUH5AwMDx8bgkQhwgAABQFJREFUSMfFls1u20YQx4XkUiRA/SbtPT30KUghXCA8OYBkWHt2gVh+Ca4QErBzoQKSgHhSAAoIN0CfwerBl1x2BZNA7QuLLh3NdJaS8tEGaKIUKC/82t/s7Mx/ZreH33Td9v4TPnXc7Bt442VpkO/NQ7hI0zLcm7+excPYS/i+fHg9RExG0Z48jLwqcDMRy/14naQiS91itFnAnY1IWUo0+ZfxUahopOHhZgF/dPyQ45rtzH24QP6Dh9GoGzjV0+5TQ0OM4zAEd/eKd7DjhxFwvNm+JZz4dVFIbImxd7rUGM38sUPOEK/R0MdMF3wzt3FceJK6G1tO6hFvppr8sGEcjXd8/HjwlBaGZJf4qt8ccszMGMPAb38fuYJWBVawgngd0bjbnxHrqAtgQPMY1xt2PFp+KbQjUdCTIpHUY6ZRS+iTEctfnRN2e0CB0xaAPjA0h4+zHLzU8ojLSaQkEoVgSqzGNP/lGNzWxQnx4UBi/fbhDZpF3dVC4iIkz7MwcBzZ8YrNAml4hCnGsaxzV4AghvJr+eMFTf/i3gHCCSUADh1PVO2xky9Tpk5zVKnUEdBdzqQAN+G1ZBNztEkA8TCY2jT2aAGjRRdUXDVl4kgNXlD6GATErxCel6+5glcwrjHo79Jv+V/I67cdfz5AmzGgmLWxVLHj4kWtYn7JlkICp6/YpMRHky62Wlh+/Yoez3q9+4hXFAlshjFfZ5VA5XkZni+COb8UjifR1ySbZjZeYUh6ExmqwPJmeoHQo4sSeNwpJPaBqRRbygOGbazk8mrKEfxcb3nBsPU0NtOOX13gu+96984krs6JXzPDwV/abuDTNEbFGEbG8lJQKmZjjUzIxlUkko6vOf75qHf/zZZHZsZrLmZ+x0+sYEeMSgn8lvzR6zHFtfANa7CVbX/L/3T28HbHC1o/zwzf8tlkLf0qkOA39Elfj5dUV7aIrFa2/LtH7YwqYMMHaQ4cbDMhvga8aXGWGVfmtpK0Ip5hjV2pAdvw8GN59+uOr7vMig3/vu7dTeHfGbnCD30ltzy9VkmY73h834W+qP+Ylxc02yCl4Kxm8uv733pK+hFpFW3187U8WL4N7e4RWv1SX6AGQJUL6adD2/dPN5S6D/zJihIRBnKrf+WWDmsdTkL8xJu62T4E9t9HvK0/CElbcGwbqEhOh0JRONSnG9JyN3/l5R/Pj7MT+5fCB8XLTn6nXCuqryX46qg6T/g1azM1Cxbglp1J1nrtoi1nokxy239s27y0O8D0ykoCgS+1rW3ypa+eOCwQDQs9MTeHI8d2eqbiYj5/djJ45jDbP0Myek28ji42vOdueGBalZya3zzPot+aphz5E8tXqijmJ4vimEfEd23T8pE1ZHnnaMtzpckZZuYyZatGwRPe8W1QFE8HZbzhzZSaK+1gMOrSz9ajITWhCAV4XFs+MvPSiz7iyf/XrmOSDQ8D2us0mSiKTvgUP1Qlw8vFiAniJxM1L/1IW//5hKqDLZuiZKLZ+k/tQWA7hkhMN+ktbe7JhsODvgaHKbcpvb6aG+eUjNn5A8ubwy2vdXHUynjmdfluM2rWkEqrvyqvYJi3WYtpVi0ghbwmsWVtupB5DelMZpY3CZ+++GF4nXxO/fC3U039mfOHJ/I3B1U0xf141Kl39kCk7LO8/PfzU3uUnj3I9jn+bM+PcXZ2kBztf/4Ecfa99y3nX0D4n87ffwFZJRzjGFa7DgAAAABJRU5ErkJggg=="
+            />
+        </div>
+        <div id="msg">
+            您已登出系統。<br><br>
+            <button id="btnIndex" style="width:120px;">重新登入</button>&nbsp;
+        </div>
+<script>
+function id(e) {return document.getElementById(e);}
+function goNext() {
+    window.location.href = "./index.html";
+}
+setTimeout(function () {
+    id("btnIndex").onclick = goNext;
+}, 500);
+</script>
+

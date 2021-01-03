@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+        <meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=0" />
+        <title>中油油價系統</title>
+        <style>
+            body {
+                background-color: white;
+                font-family: Arial, Helvetica, Sans-Serif;
+                color: black;
+            }
+            input {
+                width: 250px;
+                padding: 5px 10px;
+                margin: 4px 0;
+                display: inline-block;
+                border: 1px solid rgb(255, 144, 144);
+                border-radius: 5px;
+                box-sizing: border-box;
+                height: 40px;
+                background-color: #fafafa;
+                font-size: 12pt;
+                color: darkblue;
+            }
+            input:focus {
+                outline: none !important;
+                border: 1px solid rgb(99, 99, 255);
+                box-shadow: 0 0 10px #719ece;
+            }
+            td {
+                text-align: left;
+            }
+            button {
+                background-color: #5c5c5c;
+                border: 0;
+                border: 1px solid rgb(150, 149, 172);
+                color: white;
+                padding: 8px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                border-radius: 4px;
+                font-size: 12pt;
+            }
+            button:hover {
+                outline: none !important;
+                border: 1px solid rgb(255, 62, 62);
+                box-shadow: 0 0 10px #719ece;
+            }
+            div {
+                display: table;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        </style>
+    </head>
+    <body style="text-align: center;">
+        <div style="padding: 12px 12px;">
+            <img
+                id="cpcLogo"
+                style="border: 0;"
+                alt="CPC_Mark"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAAwAgMAAABF8Y98AAAADFBMVEXsHBUhVZeSrMT4/Pr93m36AAAAB3RJTUUH5AwMDx8bgkQhwgAABQFJREFUSMfFls1u20YQx4XkUiRA/SbtPT30KUghXCA8OYBkWHt2gVh+Ca4QErBzoQKSgHhSAAoIN0CfwerBl1x2BZNA7QuLLh3NdJaS8tEGaKIUKC/82t/s7Mx/ZreH33Td9v4TPnXc7Bt442VpkO/NQ7hI0zLcm7+excPYS/i+fHg9RExG0Z48jLwqcDMRy/14naQiS91itFnAnY1IWUo0+ZfxUahopOHhZgF/dPyQ45rtzH24QP6Dh9GoGzjV0+5TQ0OM4zAEd/eKd7DjhxFwvNm+JZz4dVFIbImxd7rUGM38sUPOEK/R0MdMF3wzt3FceJK6G1tO6hFvppr8sGEcjXd8/HjwlBaGZJf4qt8ccszMGMPAb38fuYJWBVawgngd0bjbnxHrqAtgQPMY1xt2PFp+KbQjUdCTIpHUY6ZRS+iTEctfnRN2e0CB0xaAPjA0h4+zHLzU8ojLSaQkEoVgSqzGNP/lGNzWxQnx4UBi/fbhDZpF3dVC4iIkz7MwcBzZ8YrNAml4hCnGsaxzV4AghvJr+eMFTf/i3gHCCSUADh1PVO2xky9Tpk5zVKnUEdBdzqQAN+G1ZBNztEkA8TCY2jT2aAGjRRdUXDVl4kgNXlD6GATErxCel6+5glcwrjHo79Jv+V/I67cdfz5AmzGgmLWxVLHj4kWtYn7JlkICp6/YpMRHky62Wlh+/Yoez3q9+4hXFAlshjFfZ5VA5XkZni+COb8UjifR1ySbZjZeYUh6ExmqwPJmeoHQo4sSeNwpJPaBqRRbygOGbazk8mrKEfxcb3nBsPU0NtOOX13gu+96984krs6JXzPDwV/abuDTNEbFGEbG8lJQKmZjjUzIxlUkko6vOf75qHf/zZZHZsZrLmZ+x0+sYEeMSgn8lvzR6zHFtfANa7CVbX/L/3T28HbHC1o/zwzf8tlkLf0qkOA39Elfj5dUV7aIrFa2/LtH7YwqYMMHaQ4cbDMhvga8aXGWGVfmtpK0Ip5hjV2pAdvw8GN59+uOr7vMig3/vu7dTeHfGbnCD30ltzy9VkmY73h834W+qP+Ylxc02yCl4Kxm8uv733pK+hFpFW3187U8WL4N7e4RWv1SX6AGQJUL6adD2/dPN5S6D/zJihIRBnKrf+WWDmsdTkL8xJu62T4E9t9HvK0/CElbcGwbqEhOh0JRONSnG9JyN3/l5R/Pj7MT+5fCB8XLTn6nXCuqryX46qg6T/g1azM1Cxbglp1J1nrtoi1nokxy239s27y0O8D0ykoCgS+1rW3ypa+eOCwQDQs9MTeHI8d2eqbiYj5/djJ45jDbP0Myek28ji42vOdueGBalZya3zzPot+aphz5E8tXqijmJ4vimEfEd23T8pE1ZHnnaMtzpckZZuYyZatGwRPe8W1QFE8HZbzhzZSaK+1gMOrSz9ajITWhCAV4XFs+MvPSiz7iyf/XrmOSDQ8D2us0mSiKTvgUP1Qlw8vFiAniJxM1L/1IW//5hKqDLZuiZKLZ+k/tQWA7hkhMN+ktbe7JhsODvgaHKbcpvb6aG+eUjNn5A8ubwy2vdXHUynjmdfluM2rWkEqrvyqvYJi3WYtpVi0ghbwmsWVtupB5DelMZpY3CZ+++GF4nXxO/fC3U039mfOHJ/I3B1U0xf141Kl39kCk7LO8/PfzU3uUnj3I9jn+bM+PcXZ2kBztf/4Ecfa99y3nX0D4n87ffwFZJRzjGFa7DgAAAABJRU5ErkJggg=="
+            />
+        </div>
+        <div id="msg">
+            <table>
+                <tr>
+                    <td><label>網路IP地址</label><br>
+                        <input type="text" id="ipAddr" placeholder="IP Address"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>網路遮罩</label><br>
+                        <input type="text" id="ipMask" placeholder="Mask"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>網域名稱伺服器</label><br>
+                        <input type="text" id="ipDns" placeholder="DNS"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>路由</label><br>
+                        <input type="text" id="ipGw" placeholder="Gateway"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; padding-top: 10px;">
+                        <button id="btnSend" style="width:70px;">儲存</button>
+                        <button id="btnReset" style="width:70px;">重設</button>
+                        <button id="btnReboot" style="width:90px;">重啟設備</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+<script>
+function id(e) {return document.getElementById(e);}
+function getV(e) {return id(e).value.trim();}
+function setV(e, v) {id(e).value = v;}
+
+function isNumber(v){
+    var v = parseInt(v);
+    return  isNaN(v) == false && typeof(v) == 'number';
+}
+
+function saveCfg(){
+    var data = {
+        ip: getV('ipAddr'),
+        subnet: getV('ipMask'),
+        dns: getV('ipDns'),
+        gateway: getV('ipGw') };
+    var chk = true;
+    ['ip', 'subnet', 'dns', 'gateway'].forEach(function(e){
+        chk = chk && 4==data[e].split('.').length;
+        data[e].split('.').forEach(function(seg){
+            chk = chk && isNumber(seg);
+        });
+    });
+    if(!chk){
+        alert('網路設定資料不正確，請檢查後再送出，謝謝。');
+        return;
+    }
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/f/saveIpCfg", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send("data=" + JSON.stringify(data));
+    alert("儲存網路設定後，請使用新的IP進入，謝謝。");
+}
+
+function goNext(){
+    window.location.href = "./manage.html";
+}
+
+function resetDev(){
+    setV('ipAddr', '192.168.4.1');
+    setV('ipMask', '255.255.255.0');
+    setV('ipDns', '0.0.0.0');
+    setV('ipGw', '0.0.0.0');
+}
+
+function rebootDev(){
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/f/reboot", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.send();
+    alert("設備重啟中，請稍候5秒後再操作，謝謝。");
+}
+
+function loadData(jStr){
+    var d = JSON.parse(jStr);
+    setV('ipAddr', d.ip);
+    setV('ipMask', d.subnet);
+    setV('ipDns', d.dns);
+    setV('ipGw', d.gateway);
+}
+
+setTimeout(function(){
+    id("btnSend").onclick = saveCfg;
+    id("btnReset").onclick = resetDev;
+    id("btnReboot").onclick = rebootDev;
+    id("cpcLogo").onclick = goNext;
+}, 500);
+</script>
+
